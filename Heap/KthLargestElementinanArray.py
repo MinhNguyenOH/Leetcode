@@ -1,5 +1,5 @@
 class Solution:
-    def partition(self, nums, l, r) -> int:
+    def partition(self, nums, l, r):
         pivot, p = nums[r], l
 
         for i in range(l, r):
@@ -22,7 +22,13 @@ class Solution:
                 right = pivot - 1
             else:
                 break
-
         return nums[k]
 
-    
+class Solution2:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        for i in range(len(nums)):
+            nums[i] = -nums[i]
+        min_heap = heapq.heapify(nums)
+        for i in range(k):
+            res = -heapq.heappop(nums)
+        return res
